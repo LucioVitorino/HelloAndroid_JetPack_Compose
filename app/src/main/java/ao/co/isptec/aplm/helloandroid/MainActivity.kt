@@ -77,6 +77,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                     "Escreva alguma coisa no campo de mesagme!",
                     Toast.LENGTH_SHORT
                 ).show();
+                Log.e("MainActivity", "Ocorreu um erro.");
             }else {
                 val navegar = Intent(
                     context,

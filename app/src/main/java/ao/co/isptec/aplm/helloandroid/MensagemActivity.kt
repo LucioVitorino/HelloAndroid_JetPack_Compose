@@ -20,11 +20,12 @@ import androidx.compose.ui.unit.dp
 import ao.co.isptec.aplm.helloandroid.ui.theme.HelloAndroidTheme
 
 class MensagemActivity : ComponentActivity() {
+    val NULLMENSAGE = "Nehuma Mensagem foi recebida.";
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         val mensagem = intent.getStringExtra("EXTRA_MENSAGEM")
-            ?: "Nehuma Mensagem foi recebida.";
+            ?: NULLMENSAGE;
         val words = mensagem.trim().replace("\\s+".toRegex(), " ").split(" ") ?: listOf();
         val bundle = PalavraBundle(words);
         val summary = gerarResumo(bundle);
