@@ -25,6 +25,9 @@ class MensagemActivity : ComponentActivity() {
         enableEdgeToEdge()
         val mensagem = intent.getStringExtra("EXTRA_MENSAGEM")
             ?: "Nehuma Mensagem foi recebida.";
+        val words = mensagem.trim().replace("\\s+".toRegex(), " ").split(" ") ?: listOf();
+        val bundle = PalavraBundle(words);
+        val summary = gerarResumo(bundle);
         setContent {
             HelloAndroidTheme {
                 Scaffold( modifier = Modifier.fillMaxSize() ) { innerPadding ->
@@ -35,7 +38,7 @@ class MensagemActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
-                            text = mensagem
+                            text = summary
                         )
                         Button(
                             onClick = {

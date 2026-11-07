@@ -83,12 +83,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                     MensagemActivity::class.java
                 )
                 navegar.putExtra("EXTRA_MENSAGEM", mensagem.trim());
+                mensagem = "";
                 context.startActivity(navegar);
-                Toast.makeText(
-                    context,
-                    "Mensagem Enviada Com sucesso",
-                    Toast.LENGTH_SHORT
-                ).show();
             }
         }) {
             Text("Enviar Mensagem!");
